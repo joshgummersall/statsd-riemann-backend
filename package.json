@@ -5,5 +5,8 @@
   "main": "lib/riemann.js",
   "scripts": {},
   "author": "Josh Gummersall",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "riemann": "^0.4.2"
+  }
 }
