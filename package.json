@@ -1,0 +1,9 @@
+{
+  "name": "statsd-riemann-backend",
+  "version": "0.0.0",
+  "description": "A simple StatsD backend to send data to Riemann.io",
+  "main": "lib/riemann.js",
+  "scripts": {},
+  "author": "Josh Gummersall",
+  "license": "ISC"
+}
