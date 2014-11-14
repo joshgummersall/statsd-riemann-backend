@@ -26,6 +26,21 @@ the `flush` event emitter may be added in the future.
 
 ## Installation
 
+In your StatsD installation folder, run:
+
+```bash
+$ npm install statsd-riemann-backend
+```
+
+Include the backend in your `config.js` file (see example configuration file below
+for complete configuration example).
+
+```json
+{
+  "backends": ["./node_modules/statsd-riemann-backend/index"]
+}
+```
+
 ## Configuration
 
 There are several configuration options that are available for this backend.
@@ -67,7 +82,7 @@ that the event tags would be `["apiServer", "findUser", "response", "statusCode"
 
 ```json
 {
-  "backends": ["./node_modules/statsd-riemann-backend"],
+  "backends": ["./node_modules/statsd-riemann-backend/index"],
 
   "riemann": {
     "host": "localhost",
