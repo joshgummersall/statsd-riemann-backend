@@ -1,6 +1,6 @@
 {
   "name": "statsd-riemann-backend",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple StatsD backend to stream events to Riemann.io",
   "keywords": [
     "statsd",
@@ -25,10 +25,14 @@
     "url": "https://github.com/joshgummersall/statsd-riemann-backend.git"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "node_modules/.bin/mocha test"
   },
   "dependencies": {
-    "riemann": "~0.4.3",
-    "underscore": "~1.7.0"
+    "riemann": "^0.4.3",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "should": "^5.2.0"
   }
 }

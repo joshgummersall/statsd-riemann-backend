@@ -37,7 +37,7 @@ for complete configuration example).
 
 ```json
 {
-  "backends": ["./node_modules/statsd-riemann-backend/index"]
+  "backends": ["statsd-riemann-backend"]
 }
 ```
 
