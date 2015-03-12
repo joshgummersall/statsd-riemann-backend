@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/joshgummersall/statsd-riemann-backend.svg)](https://travis-ci.org/joshgummersall/statsd-riemann-backend)
+
 statsd-riemann-backend
 ======================
 
@@ -37,7 +39,7 @@ for complete configuration example).
 
 ```json
 {
-  "backends": ["./node_modules/statsd-riemann-backend/index"]
+  "backends": ["statsd-riemann-backend"]
 }
 ```
 
