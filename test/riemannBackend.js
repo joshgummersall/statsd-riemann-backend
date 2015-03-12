@@ -1,6 +1,6 @@
 var test = require("unit.js");
 var config = { riemann: { host: {} } };
-var riemann = new require('../lib/riemann');
+var riemann = require('../lib/riemann');
 
 describe("riemann-backend", function(){
 
@@ -31,4 +31,4 @@ describe("riemann-backend", function(){
       test.string(serviceName).is("ns");
     });
   });
-})
+});
