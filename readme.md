@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/joshgummersall/statsd-riemann-backend.svg)](https://travis-ci.org/joshgummersall/statsd-riemann-backend)
+
 statsd-riemann-backend
 ======================
 
