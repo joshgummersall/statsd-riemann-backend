@@ -2,7 +2,12 @@
   "name": "statsd-riemann-backend",
   "version": "0.0.3",
   "description": "A simple StatsD backend to stream events to Riemann.io",
-  "keywords": ["statsd", "riemann", "riemann.io", "backend"],
+  "keywords": [
+    "statsd",
+    "riemann",
+    "riemann.io",
+    "backend"
+  ],
   "homepage": "https://github.com/joshgummersall/statsd-riemann-backend",
   "bugs": {
     "url": "https://github.com/joshgummersall/statsd-riemann-backend/issues",
@@ -19,9 +24,11 @@
     "type": "git",
     "url": "https://github.com/joshgummersall/statsd-riemann-backend.git"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "mocha test"
+  },
   "dependencies": {
-    "riemann": "^0.4.2",
-    "underscore": "^1.7.0"
+    "riemann": "~0.4.3",
+    "underscore": "~1.7.0"
   }
 }
