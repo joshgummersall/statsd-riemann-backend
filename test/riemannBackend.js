@@ -31,4 +31,18 @@ describe("riemann-backend", function(){
       test.string(serviceName).is("ns");
     });
   });
+
+  describe("getDescription", function(){
+    it("should return the name without the metric and type", function(){
+      var serviceName = riemannBackend.getDescription("ns.foo:1|c\n");
+      test.string(serviceName).is("ns.foo");
+    });
+
+    it("should return the second level without the namespace, metric or type, when parseNamespace is true", function(){
+      config.riemann.parseNamespace = true;
+      var serviceName = riemannBackend.getDescription("ns.foo.bar:1|c\n");
+      config.riemann.parseNamespace = false;
+      test.string(serviceName).is("foo.bar");
+    });
+  });
 });
