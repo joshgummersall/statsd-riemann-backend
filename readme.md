@@ -84,7 +84,7 @@ that the event tags would be `["apiServer", "findUser", "response", "statusCode"
 
 ```json
 {
-  "backends": ["./node_modules/statsd-riemann-backend/index"],
+  "backends": ["statsd-riemann-backend"],
 
   "riemann": {
     "host": "localhost",
