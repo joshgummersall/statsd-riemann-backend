@@ -8,4 +8,6 @@ branches:
   only:
     - master
 script:
+  - npm run jslint
+  - npm run jshint
   - npm test
