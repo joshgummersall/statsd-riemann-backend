@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "jslint": "^0.9.0-pre005",
-    "riemann": "^0.4.3",
+    "riemann": "^0.5.1",
     "underscore": "^1.7.0"
   },
   "devDependencies": {
