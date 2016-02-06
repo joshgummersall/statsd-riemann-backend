@@ -43,6 +43,17 @@ for complete configuration example).
 }
 ```
 
+If `npm install` fails with the following error message:
+
+```
+Package protobuf was not found in the pkg-config search path.
+Perhaps you should add the directory containing `protobuf.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'protobuf' found
+```
+
+You must follow the [riemann installation instructions](https://www.npmjs.com/package/riemann#prerequisites).
+
 ## Configuration
 
 There are several configuration options that are available for this backend.
