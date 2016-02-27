@@ -1,6 +1,6 @@
 {
   "name": "statsd-riemann-backend",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple StatsD backend to stream events to Riemann.io",
   "keywords": [
     "statsd",
@@ -8,9 +8,9 @@
     "riemann.io",
     "backend"
   ],
-  "homepage": "https://github.com/joshgummersall/statsd-riemann-backend",
+  "homepage": "https://gitlab.com/joshgummersall/statsd-riemann-backend",
   "bugs": {
-    "url": "https://github.com/joshgummersall/statsd-riemann-backend/issues",
+    "url": "https://gitlab.com/joshgummersall/statsd-riemann-backend/issues",
     "email": "josh@joshgummersall.me"
   },
   "license": "ISC",
@@ -22,7 +22,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshgummersall/statsd-riemann-backend.git"
+    "url": "https://gitlab.com/joshgummersall/statsd-riemann-backend.git"
   },
   "scripts": {
     "jslint": "node_modules/.bin/jslint **/*.js",
