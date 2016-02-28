@@ -1,0 +1,10 @@
+image: node:0.10
+
+before_script:
+  - npm install
+
+lint:
+  script: "npm run jslint"
+
+test:
+  script: "npm test"
