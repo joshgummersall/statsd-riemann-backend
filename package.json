@@ -1,6 +1,6 @@
 {
   "name": "statsd-riemann-backend",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "A simple StatsD backend to stream events to Riemann.io",
   "keywords": [
     "statsd",
@@ -30,8 +30,8 @@
     "url": "https://gitlab.com/joshgummersall/statsd-riemann-backend.git"
   },
   "dependencies": {
-    "lodash": "^4.5.1",
-    "riemann": "^0.5.1"
+    "lodash": "^4.2.1",
+    "riemann": "^1.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.6.0",

@@ -1,4 +1,4 @@
-import u from 'lodash';
+import ld from 'lodash';
 import riemann from 'riemann';
 
 export default class Riemann {
@@ -16,12 +16,12 @@ export default class Riemann {
     });
 
     // Bind some Riemann handlers
-    this.client.once('connect', u.bind(this.onConnect, this));
-    this.client.once('error', u.bind(this.onError, this));
-    this.client.on('data', u.bind(this.onAck, this));
+    this.client.once('connect', ld.bind(this.onConnect, this));
+    this.client.once('error', ld.bind(this.onError, this));
+    this.client.on('data', ld.bind(this.onAck, this));
 
     // Finally, bind to StatsD eventemitter
-    emitter.on('packet', u.bind(this.onPacket, this));
+    emitter.on('packet', ld.bind(this.onPacket, this));
   }
 
   onConnect() {
@@ -45,7 +45,7 @@ export default class Riemann {
   }
 
   onPacket(packet, rinfo) {
-    this.parsePacket(packet).each(u.bind(this.handlePacketEvent, this));
+    this.parsePacket(packet).each(ld.bind(this.handlePacketEvent, this));
   }
 
   parsePacket(packet) {
@@ -91,7 +91,7 @@ export default class Riemann {
       tags.push(eventString.split(':')[0].split('.'));
     }
 
-    return u.flatten(tags);
+    return ld.flatten(tags);
   }
 
   handlePacketEvent(eventString) {

@@ -1,4 +1,4 @@
-import Riemann from '../lib/riemann';
+import Riemann from '../src/riemann';
 import {EventEmitter} from 'events';
 import should from 'should';
 

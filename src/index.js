@@ -1,4 +1,4 @@
-import Riemann from './lib/riemann';
+import Riemann from './riemann';
 
 function init(startupTime, config, events) {
   const riemannInstance = new Riemann(startupTime, config, events);
