@@ -1,6 +1,7 @@
-image: node:0.10
+image: node:5
 
 before_script:
+  - apt-get update -qq && apt-get install -y -qq libprotobuf-dev
   - npm install
 
 lint:
