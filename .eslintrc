@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "modules": true,
+    "experimentalObjectRestSpread": true
+  },
+  "env": {
+    "es6": true
+  },
+  "globals": {},
+  "rules": {
+    "arrow-parens": 2,
+    "no-var": 2,
+    "object-shorthand": 2,
+    "prefer-arrow-callback": 2,
+    "prefer-const": 2,
+    "prefer-spread": 2,
+    "prefer-template": 2,
+    "require-yield": 2
+  }
+}
