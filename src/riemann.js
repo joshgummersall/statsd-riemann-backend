@@ -10,18 +10,51 @@ export default class Riemann {
    */
   constructor(startupTime, config, emitter) {
     this.config = config;
+    this.setupClient();
+
+    // If reconnect interval is specified in config and we are instructed to use
+    // a TCP connection, set up the reconnect interval
+    if (this.config.transport && this.config.transport === 'tcp' &&
+        this.config.reconnectInterval) {
+      this.reconnectInterval = setInterval(() => {
+        this.reconnectIfNeeded();
+      }, this.config.reconnectInterval);
+    }
+
+    // Finally, bind to emitter to start handling packets
+    emitter.on('packet', (...args) => {
+      this.onPacket(...args);
+    });
+  }
+
+  setupClient() {
     this.client = riemann.createClient({
       host: this.config.host,
       port: this.config.port
     });
 
     // Bind some Riemann handlers
-    this.client.once('connect', ld.bind(this.onConnect, this));
-    this.client.once('error', ld.bind(this.onError, this));
-    this.client.on('data', ld.bind(this.onAck, this));
+    this.client.once('connect', (...args) => {
+      this.onConnect(...args);
+    });
+    this.client.on('error', (...args) => {
+      this.onError(...args);
+    });
+    this.client.on('data', (...args) => {
+      this.onAck(...args);
+    });
+  }
 
-    // Finally, bind to StatsD eventemitter
-    emitter.on('packet', ld.bind(this.onPacket, this));
+  reconnectIfNeeded() {
+    // Note: we only register this function as an interval _if_ the
+    // configuration says to use TCP, hence no extra check here.
+    if (!this.client.tcp || !this.client.tcp.socket ||
+        this.client.tcp.socket.readyState === 'closed') {
+      if (this.config.debug) {
+        console.log('Riemann socket seems to be closed, reconnecting...');
+      }
+      this.setupClient();
+    }
   }
 
   onConnect() {
@@ -33,7 +66,7 @@ export default class Riemann {
   onError(err) {
     if (this.config.debug) {
       console.error(err);
-    } else {
+    } else if (!this.reconnectInterval) {
       throw err;
     }
   }
@@ -45,7 +78,9 @@ export default class Riemann {
   }
 
   onPacket(packet, rinfo) {
-    this.parsePacket(packet).each(ld.bind(this.handlePacketEvent, this));
+    this.parsePacket(packet).each((...args) => {
+      this.handlePacketEvent(...args);
+    });
   }
 
   parsePacket(packet) {
@@ -110,11 +145,15 @@ export default class Riemann {
   send(eventData) {
     const eventToSend = this.client.Event(eventData);
 
-    // Send using proper transport
-    if (this.config.transport && this.config.transport === 'tcp') {
-      this.client.send(eventToSend, this.client.tcp);
-    } else {
-      this.client.send(eventToSend);
+    try {
+      // Send using proper transport
+      if (this.config.transport && this.config.transport === 'tcp') {
+        this.client.send(eventToSend, this.client.tcp);
+      } else {
+        this.client.send(eventToSend);
+      }
+    } catch (err) {
+      this.onError(err);
     }
   }
 }
