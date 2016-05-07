@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "5"
+cache:
+  directories:
+    - node_modules
+before:
+  - apt-get update -qq && apt-get install -y -qq libprotobuf-dev
+script:
+  - grep -R '\.only' test; [[ ! $? -eq 0 ]]
+  - npm run lint
+  - npm run compile
+  - npm test
+branches:
+  only:
+    - master
