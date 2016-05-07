@@ -4,7 +4,7 @@ node_js:
 cache:
   directories:
     - node_modules
-before:
+before_install:
   - apt-get update -qq && apt-get install -y -qq libprotobuf-dev
 script:
   - grep -R '\.only' test; [[ ! $? -eq 0 ]]
