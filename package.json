@@ -8,15 +8,15 @@
     "riemann.io",
     "backend"
   ],
-  "homepage": "https://gitlab.com/joshgummersall/statsd-riemann-backend",
+  "homepage": "https://github.com/joshgummersall/statsd-riemann-backend",
   "scripts": {
-    "build": "node_modules/.bin/babel src/ -d lib/",
-    "prepublish": "npm run build",
+    "compile": "node_modules/.bin/babel src/ -d lib/",
+    "prepublish": "npm run compile",
     "lint": "node_modules/.bin/eslint src/** test/**",
     "test": "node_modules/.bin/mocha --compilers js:babel-register test/*_test.js"
   },
   "bugs": {
-    "url": "https://gitlab.com/joshgummersall/statsd-riemann-backend/issues",
+    "url": "https://github.com/joshgummersall/statsd-riemann-backend/issues",
     "email": "josh@joshgummersall.me"
   },
   "license": "ISC",
@@ -28,7 +28,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/joshgummersall/statsd-riemann-backend.git"
+    "url": "https://github.com/joshgummersall/statsd-riemann-backend.git"
   },
   "dependencies": {
     "lodash": "^4.2.1",
