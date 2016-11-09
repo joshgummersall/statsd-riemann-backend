@@ -9,7 +9,7 @@ export default class Riemann {
    * transport, flush, packet
    */
   constructor(startupTime, config, emitter) {
-    this.config = config;
+    this.config = config.riemann;
     this.client = riemann.createClient({
       host: this.config.host,
       port: this.config.port
