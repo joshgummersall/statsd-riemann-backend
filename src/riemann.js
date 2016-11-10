@@ -45,7 +45,7 @@ export default class Riemann {
   }
 
   onPacket(packet, rinfo) {
-    this.parsePacket(packet).each(ld.bind(this.handlePacketEvent, this));
+    this.parsePacket(packet).forEach(ld.bind(this.handlePacketEvent, this));
   }
 
   parsePacket(packet) {
@@ -97,14 +97,16 @@ export default class Riemann {
   handlePacketEvent(eventString) {
     // See here for valid event properties:
     // http://aphyr.github.io/riemann/concepts.html
-    this.send({
-      service: this.getService(eventString),
-      state: 'ok',
-      description: this.getDescription(eventString),
-      tags: this.getTags(eventString),
-      metric: this.getMetric(eventString),
-      ttl: this.config.ttl
-    });
+    if (eventString) {
+      this.send({
+        service: this.getService(eventString),
+        state: 'ok',
+        description: this.getDescription(eventString),
+        tags: this.getTags(eventString),
+        metric: this.getMetric(eventString),
+        ttl: this.config.ttl
+      });
+    }
   }
 
   send(eventData) {
